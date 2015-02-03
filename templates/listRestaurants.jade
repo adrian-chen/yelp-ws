@@ -1,12 +1,27 @@
 extends layout.jade
 
 block content
-    each item in contents.data['restaurants.json'].metadata     
-        div.row
-            div.eight.columns
-                a(href='view/restaurant.html')
-                    = item.name
-            div.four.columns
-                = item.stars
-                |  stars
+	each item in contents.data['restaurants.json'].metadata     
+		div.row
+			// div.eight.columns
+			div.six.columns.onecell
+				div.onerow
+					div.namepiece
+						a(href='view/restaurant.html')
+							= item.name
+					div.starpiece
+						= item.stars + " stars"
+				div.onerow
+					div.hourpiece
+						each day, dayName in item.hours
+							div.onerow
+								= dayName + " "
+								= day.open + "-"
+								= day.close
+					div.onerow
+						div.addresspiece
+							= item.full_address
+
+					//	= item.hours['Monday']['Close']
+
 
