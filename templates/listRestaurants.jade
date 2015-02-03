@@ -1,9 +1,8 @@
 extends layout.jade
 
 block content
-	each item in contents.data['restaurants.json'].metadata     
-		div.row
-			// div.eight.columns
+	div.row
+		each item in contents.data['restaurants.json'].metadata     
 			div.six.columns.onecell
 				div.onerow
 					div.namepiece
@@ -21,7 +20,5 @@ block content
 					div.onerow
 						div.addresspiece
 							= item.full_address
-
-					//	= item.hours['Monday']['Close']
 
 
