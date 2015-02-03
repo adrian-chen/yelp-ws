@@ -1,11 +1,40 @@
 extends layout.jade
 
 block content
-    each item in contents.data['doctors.json'].metadata     
-        div.row
-            div.eight.columns
-               a(href='view/doctor.html')
-                    = item.name
-            div.four.columns
-                if (item.attributes["By Appointment Only"])
-                    | By Appointment Only
+	each item, i in contents.data['doctors.json'].metadata 
+			div.row(style="background-color: "+(i%2==0?"silver":"white"))
+				div.twelve.columns
+					div.row
+						div.eight.columns
+							a(href='view/doctor.html')
+								= item.name
+						div.four.columns
+							p
+								= item.stars + '/5'
+					div.row
+						div.one.column
+						div.five.columns
+							p
+								= item.full_address
+						div.six.columns
+							if (item.attributes["By Appointment Only"])
+								| By Appointment Only
+							else
+								| Walk-in
+					div.row
+						div.two.columns
+							p
+						div.five.columns
+							each category in item.categories
+								p
+									= category
+						div.five.columns
+							each day, dayName in item.hours
+								p
+									= dayName
+									| 
+									= day.open 
+									|-
+									= day.close
+									| 
+									br
