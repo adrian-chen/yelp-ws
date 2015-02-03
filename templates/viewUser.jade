@@ -1,8 +1,12 @@
 extends layout
 
 block content
-    // display the detail of the first item
-    - var item = contents.data['users.json'].metadata[0]
-    h3= item.name
-    div.row
-        div.three.columns= item.name
+	// display the detail of the first item
+	- var item = contents.data['users.json'].metadata[0]
+	h3= item.name
+	font(size ='2') Fans: #{item.fans}
+	font(size ='1')&nbsp;&nbsp;Yelping since: #{item.yelping_since}
+	div.row
+		h5= "Votes"
+		p Cool: #{item.votes.cool} Useful: #{item.votes.useful} Funny:  #{item.votes.funny}
+	h5="Friends"

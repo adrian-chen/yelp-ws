@@ -7,10 +7,16 @@ block content
 		div.row
 			- var endInd = i + 2
 			while i < endInd && i < data.length
-				div.six.columns
+				div.six.columns.usercell
 					- var item = data[i]
-					a(href='view/user.html')
-						= item.name
-					font(size ='1')&nbsp;&nbsp;Yelping since: #{item.yelping_since}
+					div.six.columns
+					
+				
+						img(src='design/sampleperson.gif' height='42' width='42').vcenter
+						a(href='view/user.html')
+							= item.name
+				
+					div.six.columns
+						font(size ='1')&nbsp;&nbsp;Yelping since: #{item.yelping_since} Rating: #{item.average_stars}
 					- i = i + 1
 		br
