@@ -1,7 +1,16 @@
 extends layout.jade
 
 block content
-    each item in contents.data['users.json'].metadata     
-        div.row
-            a(href='view/user.html')
-                = item.name
+	- var data = contents.data['users.json'].metadata 
+	- var i = 0
+	while i < data.length
+		div.row
+			- var endInd = i + 2
+			while i < endInd && i < data.length
+				div.six.columns
+					- var item = data[i]
+					a(href='view/user.html')
+						= item.name
+					font(size ='1')&nbsp;&nbsp;Yelping since: #{item.yelping_since}
+					- i = i + 1
+		br
