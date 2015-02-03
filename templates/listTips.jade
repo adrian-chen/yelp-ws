@@ -1,7 +1,20 @@
 extends layout.jade
 
 block content
-    each item in contents.data['tips.json'].metadata     
-        div.row
-            a(href='view/tip.html')
-                = item.text
+		hr
+		each item in contents.data['tips.json'].metadata
+				div.row
+						div.eight.columns
+								img(src="http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802.jpg?s=80").vcenter
+								= item.user_id
+						div.two.columns
+								= "likes: " + item.likes
+						div.two.columns
+								= item.date
+				div.row
+						div.eight.columns
+								a(href='view/tip.html')
+										blockquote= item.text
+						div.four.columns
+								= "Place: " + item.business_id
+				hr

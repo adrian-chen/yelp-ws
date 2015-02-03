@@ -4,8 +4,11 @@ block content
     // display the detail of the first item
     - var item = contents.data['tips.json'].metadata[0]
     div.row
-        div.one.column Tip
-        div.elevent.columns= item.text
-    div.row
-        div.one.column By
-        div.four.column= item.user_id
+        div.eight.columns
+            img(src="design/restaurant.jpg")
+            = item.business_id
+        div.four.columns
+            img(src="http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802.jpg?s=80").vcenter
+            = item.user_id
+            blockquote= item.text
+            = item.date
